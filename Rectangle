@@ -1,0 +1,94 @@
+using System;
+
+namespace Rectangle
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Rectangle AB = new Rectangle();
+
+            Console.WriteLine("Insert value A");
+            AB.A = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Insert value B");
+            AB.B = Convert.ToInt32(Console.ReadLine());
+            AB.ifsquare();
+            AB.ABRectangle();
+            AB.Perimetr();
+            AB.S();
+
+
+
+
+            Console.ReadKey();
+        }
+
+        class Rectangle
+        {
+
+            private int a;
+            private int b;
+            public int A
+            {
+                get
+                {
+                    return a;
+                }
+                set
+                {
+                    while (value <= 0)
+                    {
+                        Console.WriteLine("Use positive value and try again A=");
+                        value = Convert.ToInt32(Console.ReadLine());
+                    }
+                    a = value;
+                }
+            }
+            public int B
+            {
+                get { return b; }
+                set
+                {
+                    while (value <= 0)
+                    {
+                        Console.WriteLine("Use positive value and try again B=");
+                        value = Convert.ToInt32(Console.ReadLine());
+                    }
+                    b = value;
+
+                }
+            }
+
+
+            public Rectangle() { }
+            public Rectangle(int a, int b) { A = a; B = b; }
+
+            public void ABRectangle()
+            {
+                Console.WriteLine($"A={A} B={B}");
+            }
+            public int Perimetr()
+            {
+                int P = 2 * (A + B);
+
+                Console.WriteLine("Perimetr=" + P);
+                return (P);
+            }
+            public void S() //площад
+            {
+                double area = A * B;
+                Console.WriteLine($"Area={area}");
+            }
+            public void ifsquare()
+            {
+                int square = A / B;
+                if (square == 1)
+                { Console.WriteLine("This is a square"); }
+                else { Console.WriteLine("This is not a square");}
+            }
+
+        }
+
+    }
+}
+
